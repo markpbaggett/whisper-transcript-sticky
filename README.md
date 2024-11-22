@@ -6,10 +6,12 @@ This web-component lets you view the JSON output of [Whisper](https://github.com
 $ whisper --model large-v3 --word_timestamps True media.mp3
 ```
 
+You can see a demo at https://edsu.github.io/whisper-transcript
+
 ## Installation
 
 ```bash
-npm i whisper-transcript
+yarn install whisper-transcript
 ```
 
 ## Usage
@@ -25,5 +27,5 @@ npm i whisper-transcript
 ## Develop
 
 ```bash
-npm start
+yarn start
 ```
