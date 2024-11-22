@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <title>whisper-transcript demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <style>
+      body {
+        background: #fafafa;
+        font-size: 1.5em;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;
+        margin: 5% 10% 5% 10%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo"></div>
+    <script type="module" src="index.js"></script>
+    <whisper-transcript audio="audio.mp3" url="audio.json"></whisper-transcript>
+  </body>
+</html>

@@ -4,7 +4,7 @@
   "repository": "github:edsu/whisper-transcript",
   "license": "MIT",
   "author": "whisper-transcript",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "main": "index.js",
   "module": "index.js",
@@ -14,14 +14,18 @@
   },
   "scripts": {
     "analyze": "cem analyze --litelement",
-    "start": "web-dev-server"
+    "start": "web-dev-server",
+    "build": "rollup -c"
   },
   "dependencies": {
     "lit": "^3.1.4"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.10.3",
-    "@web/dev-server": "^0.4.6"
+    "@web/dev-server": "^0.4.6",
+    "koa-range": "^0.3.0",
+    "rollup": "^4.27.3",
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "customElements": "custom-elements.json"
 }
