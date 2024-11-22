@@ -1,0 +1,27 @@
+{
+  "name": "whisper-transcript",
+  "description": "A web-component for viewing a Whisper JSON transcript",
+  "repository": "github:edsu/whisper-transcript",
+  "license": "MIT",
+  "author": "whisper-transcript",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./whisper-transcript.js": "./whisper-transcript.js"
+  },
+  "scripts": {
+    "analyze": "cem analyze --litelement",
+    "start": "web-dev-server"
+  },
+  "dependencies": {
+    "lit": "^3.1.4"
+  },
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.10.3",
+    "@web/dev-server": "^0.4.6"
+  },
+  "customElements": "custom-elements.json"
+}
