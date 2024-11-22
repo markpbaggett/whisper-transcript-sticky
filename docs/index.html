@@ -11,11 +11,39 @@
         font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;
         margin: 5% 10% 5% 10%;
       }
+
+      h1 {
+        text-align: center;
+      }
     </style>
   </head>
+
   <body>
-    <div id="demo"></div>
     <script type="module" src="index.js"></script>
+    <h1>&lt;whisper-transcript&gt;</h1>
+
+    <p>
+    This is example of using the <a
+      href="https://github.com/edsu/whisper-transcript">whisper-transcript</a>
+    <a href="https://en.wikipedia.org/wiki/Web_Components">web component</a> to display a Whisper transcript that was generated using word
+    timestamps in order to visualize the confidence scores in the context of the
+    words and their sound:
+    </p>
+
+    <pre>
+      <code>
+      $ whisper --model tiny audio.mp3 --word_timestamps True 
+      </code>
+    </pre>
+
+    <p>
+    Running this command generates an <a href="audio.json">audio.json</a> file which contains
+    detailed timestamp information for each word, and also a probability score
+    that indicates the confidence in Whisper's transcription.
+
+    View the HTML source to see how to use the web component in your HTML.
+    </p>
+
     <whisper-transcript audio="audio.mp3" url="audio.json"></whisper-transcript>
   </body>
 </html>
