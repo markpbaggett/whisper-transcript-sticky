@@ -30,11 +30,13 @@
     timestamps in order to visualize the confidence scores in the context of the
     words and their sound:</p>
 
-    <pre><code>$ whisper --model large-v3 audio.mp3 --word_timestamps True</code></pre>
+    <pre><code>$ whisper --model small audio.mp3 --word_timestamps True</code></pre>
 
     <p>Running this command generates an <a href="audio.json">audio.json</a> file which contains
     detailed timestamp information for each word, and also a probability score
-    that indicates the confidence in Whisper's transcription.</p>
+    that indicates the confidence in Whisper's transcription. Note: I
+    intentionally ran with the small model in order to get more varied
+    probabilities in this example.</p>
 
     <p>View the HTML source to see how to use the whisper-transcript web
     component in your own pages. But it's basically: </p>
