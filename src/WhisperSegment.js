@@ -11,7 +11,7 @@ export class WhisperSegment extends LitElement {
 
   static styles = css`
     .segment {
-      border: 2px solid #ddd;
+      border: 2px solid #333;
       padding: 5px;
       margin: 2px;
       border-radius: 5px;
@@ -20,14 +20,14 @@ export class WhisperSegment extends LitElement {
     }
 
     .selected {
-      background-color: #ddd;
+      background-color: #333;
       border-color: black;
     }
 
     .times {
       width: 325px;
       float: left;
-      color: gray;
+      color: lightgray;
       margin-right: 10px;
     }
 

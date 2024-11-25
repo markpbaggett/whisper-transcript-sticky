@@ -16,6 +16,11 @@ export class WhisperTranscript extends LitElement {
     .media {
       text-align: center;
     }
+
+    .whisper-transcript {
+      background: black;
+      color: white;
+    }
   `;
 
   static properties = {
@@ -57,14 +62,16 @@ export class WhisperTranscript extends LitElement {
     }
 
     return html`
-      <div class="media">
-        ${media}
+      <div class="whisper-transcript">
+        <div class="media">
+          ${media}
+        </div>
+        <ul>
+          ${this.transcript.segments.map(s =>
+            html`<whisper-segment .words="${s.words}" start="${s.start}" end="${s.end}" text="${s.text}" />`
+          )}
+        </ul>
       </div>
-      <ul>
-        ${this.transcript.segments.map(s =>
-          html`<whisper-segment .words="${s.words}" start="${s.start}" end="${s.end}" text="${s.text}" />`
-        )}
-      </ul>
     `;
   }
 }

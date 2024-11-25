@@ -20,11 +20,11 @@ export class WhisperWord extends LitElement {
     }
 
     span.mediocre {
-      color: #880808;
+      color: yellow;
     }
 
     span.poor {
-      color: #E30B5C;
+      color: orange;
     }
 
     span.terrible {
