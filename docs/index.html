@@ -16,10 +16,10 @@
         text-align: center;
       }
     </style>
+    <script src="https://unpkg.com/whisper-transcript@latest/dist/index.js"></script>
   </head>
 
   <body>
-    <script type="module" src="whisper-transcript.min.js"></script>
     <h1>&lt;whisper-transcript&gt;</h1>
 
     <p>This is an example of using the <a
@@ -41,7 +41,10 @@
     <p>View the HTML source to see how to use the whisper-transcript web
     component in your own pages. But it's basically: </p>
 
-    <pre><code>&lt;whisper-transcript audio="audio.mp3" url="audio.json"&gt;&lt;/whisper-transcript&gt;</code></pre>
+    <pre><code>
+      &lt;script src="https://unpkg.com/whisper-transcript@latest/dist/index.js"&gt;&lt;/script&gt;
+      &lt;whisper-transcript audio="audio.mp3" url="audio.json"&gt;&lt;/whisper-transcript&gt;
+    </code></pre>
 
     <whisper-transcript audio="audio.mp3" url="audio.json"></whisper-transcript>
   </body>
