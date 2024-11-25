@@ -16,8 +16,12 @@ yarn install whisper-transcript
 
 ## Usage
 
+Load the module:
+
 ```html
-<script src="https://unpkg.com/whisper-transcript@latest/dist/index.js"></script>
+<script type="module" src="https://unpkg.com/whisper-transcript@latest/dist/index.js"></script>
+
+And use it!
 
 <whisper-transcript audio="media.mp3" url="media.json"></whisper-transcript>
 ```
