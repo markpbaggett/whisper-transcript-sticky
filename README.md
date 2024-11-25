@@ -19,7 +19,7 @@ yarn install whisper-transcript
 Load the module:
 
 ```html
-<script type="module" src="https://unpkg.com/whisper-transcript@latest/dist/index.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/whisper-transcript@latest/dist/index.js"></script>
 
 And use it!
 
