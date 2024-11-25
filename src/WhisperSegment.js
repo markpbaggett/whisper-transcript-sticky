@@ -20,7 +20,7 @@ export class WhisperSegment extends LitElement {
     }
 
     .selected {
-      background-color: #333;
+      background-color: #555;
       border-color: black;
     }
 
