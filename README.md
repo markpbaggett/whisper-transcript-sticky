@@ -1,6 +1,6 @@
 # \<whisper-transcript>
 
-This web-component lets you view the JSON output of [Whisper](https://github.com/openai/whisper) to graphically examine the probability of each word. You will want to run whisper with the `--word_stamps` turned on:
+This web-component lets you view the JSON output of [Whisper](https://github.com/openai/whisper) to graphically examine the confidence level and timing of each word. You will want to run whisper with the `--word_stamps` turned on:
 
 ```
 $ whisper --model large-v3 --word_timestamps True media.mp3
