@@ -10,42 +10,68 @@ export class WhisperMedia extends LitElement {
       max-height: 200px;
       margin-left: auto;
       margin-right: auto;
+      display: block;
     }
   `;
 
   static properties = {
-    audio: {type: String},
-    video: {type: String}
+    audio: { type: String },
+    video: { type: String }
   };
 
   updateTime(time) {
     window.dispatchEvent(
       new CustomEvent("update-time", {
-        detail: {
-          time
-        }
+        detail: { time }
       })
     );
   }
 
-  render() {
-    let media = null;
-    if (this.audio) {
-      media = document.createElement('audio', this.audio);
-      media.src = this.audio;
-    } else {
-      media = document.createElement('video', this.video);
-      media.src = this.video;
-    }
+  async firstUpdated() {
+    const videoEl = this.shadowRoot.querySelector('video');
+    const audioEl = this.shadowRoot.querySelector('audio');
+    const media = videoEl || audioEl;
 
-    if (media) {
-      media.controls = true;
-      media.preload = "auto";
-      media.ontimeupdate = (_) => this.updateTime(media.currentTime);
-      window.addEventListener('update-player-time', e => media.currentTime = e.detail.time);
+    if (!media) return;
 
-      return html`${media}`;
+    media.ontimeupdate = () => this.updateTime(media.currentTime);
+    window.addEventListener('update-player-time', e => media.currentTime = e.detail.time);
+
+    if (this.video && videoEl && this.video.endsWith('.m3u8')) {
+      const canPlayNative = videoEl.canPlayType('application/vnd.apple.mpegurl');
+
+      if (canPlayNative) {
+        videoEl.src = this.video;
+      } else {
+        try {
+          const { default: Hls } = await import('https://cdn.jsdelivr.net/npm/hls.js@latest');
+          if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(this.video);
+            hls.attachMedia(videoEl);
+          } else {
+            console.error('HLS.js is not supported in this browser.');
+          }
+        } catch (err) {
+          console.error('Failed to load HLS.js or attach stream:', err);
+        }
+      }
     }
   }
-}
 
+  render() {
+    if (this.audio) {
+      return html`<audio src=${this.audio} controls preload="auto"></audio>`;
+    }
+
+    if (this.video) {
+      const isM3U8 = this.video.endsWith('.m3u8');
+      const canPlayNative = document.createElement('video').canPlayType('application/vnd.apple.mpegurl');
+      const src = (!isM3U8 || canPlayNative) ? this.video : '';
+
+      return html`<video .src=${src} controls preload="auto"></video>`;
+    }
+
+    return html``;
+  }
+}
