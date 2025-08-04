@@ -60,7 +60,7 @@ export class WhisperSegment extends LitElement {
           <div class="times">${hms(this.start)} - ${hms(this.end)}</div>
           <div class="words">
           ${this.words.map(w =>
-            html`<whisper-word title="${w.probability}" word="${w.word}" start="${w.start}" end="${w.end}" probability="${w.probability}" />`
+            html`<whisper-word title="${w.probability}" word="${w.word}" start="${w.start}" end="${w.end}" probability="${w.probability}" score="${w.score}" />`
           )}
           </div>
         </li>

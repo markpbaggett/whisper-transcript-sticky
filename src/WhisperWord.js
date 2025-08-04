@@ -5,6 +5,7 @@ export class WhisperWord extends LitElement {
   static properties = {
     word: {type: String},
     probability: {type: Number},
+    score: {type: Number},
     start: {type: Number},
     end: {type: Number},
     selected: {type: Boolean}
@@ -65,11 +66,15 @@ export class WhisperWord extends LitElement {
 
   getCssClass() {
     let style = this.selected ? 'selected ' : '';
-    if (this.probability > .9) {
+
+    const confidence = this.score ?? this.probability ?? 0;
+    console.log(this);
+
+    if (confidence > 0.9) {
       style += 'good';
-    } else if (this.probability > .7) {
+    } else if (confidence > 0.7) {
       style += 'mediocre';
-    } else if (this.probability > .5) {
+    } else if (confidence > 0.5) {
       style += 'poor';
     } else {
       style += 'terrible';
