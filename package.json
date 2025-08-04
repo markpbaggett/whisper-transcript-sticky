@@ -4,7 +4,7 @@
   "repository": "github:markpbaggett/whisper-transcript-sticky",
   "license": "MIT",
   "author": "whisper-transcript",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "type": "module",
   "main": "dist/index.js",
   "module": "index.js",
